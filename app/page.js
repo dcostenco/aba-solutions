@@ -9,56 +9,74 @@ export default function Home() {
 
   return (
     <>
-      {/* Hero */}
-      <section className="hero">
-        <div className="hero-bg"></div>
-        <div className="container hero-container">
-          <div className="hero-content">
-            <span className="section-label">ABA Therapy in Maryland</span>
-            <h1>{hero.title}</h1>
-            <p className="hero-text">{hero.subtitle}</p>
-            <div className="hero-actions">
-              <Link href={hero.ctaLink} className="btn btn-primary btn-lg">
-                {hero.cta}
-              </Link>
-              <Link href="/services" className="btn btn-outline btn-lg">
-                Our Services
-              </Link>
-            </div>
-            <div className="hero-trust">
-              <div className="hero-trust-item">
-                <span className="hero-trust-number">10+</span>
-                <span className="hero-trust-label">Years of Experience</span>
-              </div>
-              <div className="hero-trust-divider"></div>
-              <div className="hero-trust-item">
-                <span className="hero-trust-number">6</span>
-                <span className="hero-trust-label">Counties Served</span>
-              </div>
-              <div className="hero-trust-divider"></div>
-              <div className="hero-trust-item">
-                <span className="hero-trust-number">2</span>
-                <span className="hero-trust-label">Clinic Locations</span>
-              </div>
-            </div>
+      {/* Hero — full-width image inspired by verbalbeginnings.com */}
+      <section className="hero-photo">
+        <div className="hero-photo-bg">
+          <Image
+            src="/images/hero-therapy.png"
+            alt="ABA therapist working with a child on puzzle activities"
+            fill
+            priority
+            style={{ objectFit: 'cover', objectPosition: 'center' }}
+          />
+          <div className="hero-photo-overlay"></div>
+        </div>
+        <div className="container hero-photo-content">
+          <span className="section-label hero-label">ABA Therapy in Maryland</span>
+          <h1>{hero.title}</h1>
+          <p className="hero-text">{hero.subtitle}</p>
+          <div className="hero-actions">
+            <Link href={hero.ctaLink} className="btn btn-primary btn-lg">
+              {hero.cta}
+            </Link>
+            <Link href="/services" className="btn btn-white btn-lg">
+              Our Services
+            </Link>
           </div>
-          <div className="hero-visual">
-            <div className="hero-card">
-              <Image
-                src="/images/logo.png"
-                alt="ABA Solutions puzzle logo"
-                width={200}
-                height={65}
-                className="hero-card-logo"
-              />
-              <h3>Every Child is Unique</h3>
-              <p>We create individualized programs tailored to your child&apos;s specific needs and strengths.</p>
+          <div className="hero-stats">
+            <div className="hero-stat">
+              <span className="hero-stat-number">10+</span>
+              <span className="hero-stat-label">Years of Experience</span>
+            </div>
+            <div className="hero-stat">
+              <span className="hero-stat-number">6</span>
+              <span className="hero-stat-label">Counties Served</span>
+            </div>
+            <div className="hero-stat">
+              <span className="hero-stat-number">2</span>
+              <span className="hero-stat-label">Clinic Locations</span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Services Overview */}
+      {/* Quick Cards — VB-inspired 3-column CTA bar */}
+      <section className="quick-cards-section">
+        <div className="container">
+          <div className="grid-3">
+            <Link href="/about" className="quick-card">
+              <span className="quick-card-icon">👨‍👩‍👧‍👦</span>
+              <h3>About Us</h3>
+              <p>Meet our experienced BCBA and RBT team</p>
+              <span className="quick-card-arrow">→</span>
+            </Link>
+            <Link href="/services" className="quick-card quick-card-primary">
+              <span className="quick-card-icon">🎯</span>
+              <h3>Our Services</h3>
+              <p>Assessment, treatment, and parent training</p>
+              <span className="quick-card-arrow">→</span>
+            </Link>
+            <Link href="/contact" className="quick-card">
+              <span className="quick-card-icon">📞</span>
+              <h3>Contact Us</h3>
+              <p>Schedule a call to get started today</p>
+              <span className="quick-card-arrow">→</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Services — photo + text side-by-side */}
       <section className="section">
         <div className="container">
           <div className="section-header">
@@ -66,42 +84,71 @@ export default function Home() {
             <h2>Comprehensive ABA Services</h2>
             <p>{services.intro}</p>
           </div>
-          <div className="grid-3">
-            <div className="card card-interactive service-card">
-              <div className="service-icon" aria-hidden="true">📋</div>
-              <h3>{services.assessment.title}</h3>
-              <p>{services.assessment.description}</p>
-              <div className="service-tags">
-                {services.assessment.tools.map((tool, i) => (
-                  <span key={i} className="badge badge-blue">{tool}</span>
-                ))}
-              </div>
+          <div className="split-section">
+            <div className="split-image">
+              <Image
+                src="/images/clinic-interior.png"
+                alt="ABA Solutions clinic interior"
+                width={560}
+                height={400}
+                className="rounded-img"
+              />
             </div>
-            <div className="card card-interactive service-card">
-              <div className="service-icon" aria-hidden="true">🎯</div>
-              <h3>{services.treatment.title}</h3>
-              <p>{services.treatment.description}</p>
-              <div className="service-tags">
-                {services.treatment.offerings.slice(0, 5).map((s, i) => (
-                  <span key={i} className="badge badge-green">{s}</span>
-                ))}
-                <span className="badge badge-green">+{services.treatment.offerings.length - 5} more</span>
+            <div className="split-content">
+              <div className="service-item">
+                <span className="service-number">01</span>
+                <div>
+                  <h3>{services.assessment.title}</h3>
+                  <p>{services.assessment.description}</p>
+                  <div className="service-tags">
+                    {services.assessment.tools.map((tool, i) => (
+                      <span key={i} className="badge badge-blue">{tool}</span>
+                    ))}
+                  </div>
+                </div>
               </div>
-            </div>
-            <div className="card card-interactive service-card">
-              <div className="service-icon" aria-hidden="true">📅</div>
-              <h3>{services.schedule.title}</h3>
-              <p>{services.schedule.description}</p>
-              <Link href="/contact" className="btn btn-outline mt-auto">
-                Schedule a Call
-              </Link>
+              <div className="service-item">
+                <span className="service-number">02</span>
+                <div>
+                  <h3>{services.treatment.title}</h3>
+                  <p>{services.treatment.description}</p>
+                </div>
+              </div>
+              <div className="service-item">
+                <span className="service-number">03</span>
+                <div>
+                  <h3>{services.schedule.title}</h3>
+                  <p>{services.schedule.description}</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Locations */}
+      {/* Treatment offerings grid */}
       <section className="section-alt">
+        <div className="container">
+          <div className="section-header">
+            <span className="section-label">Programs</span>
+            <h2>Treatment Services</h2>
+          </div>
+          <div className="offerings-home-grid">
+            {services.treatment.offerings.map((offering, i) => (
+              <div key={i} className="offering-card">
+                <span className="offering-check" aria-hidden="true">✓</span>
+                <span>{offering}</span>
+              </div>
+            ))}
+          </div>
+          <div className="text-center mt-8">
+            <Link href="/services" className="btn btn-primary">View All Services →</Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Locations with clinic photo */}
+      <section className="section">
         <div className="container">
           <div className="section-header">
             <span className="section-label">Our Locations</span>
@@ -131,30 +178,52 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Team Preview — only show members with bios */}
-      <section className="section">
+      {/* Team — with actual photos */}
+      <section className="section-alt">
         <div className="container">
           <div className="section-header">
             <span className="section-label">Our Team</span>
-            <h2>Meet Our Experienced Team</h2>
-            <p>Our team of Board Certified Behavior Analysts and Registered Behavior Technicians are dedicated to helping your family thrive.</p>
+            <h2>Meet Our Leadership</h2>
+            <p>Experienced BCBAs and RBTs dedicated to helping your family thrive.</p>
           </div>
-          <div className="grid-4">
-            {visibleTeam.slice(0, 4).map((member, i) => (
-              <div key={i} className="card card-interactive team-card">
-                <div className="team-avatar" aria-hidden="true">
-                  {member.name.split(' ').map(n => n[0]).join('')}
+          <div className="team-feature-grid">
+            {visibleTeam.slice(0, 2).map((member, i) => {
+              const photoMap = {
+                'Holly Bennett': '/images/holly-bennett.jpg',
+                'Lauren Nittinger': '/images/lauren-nittinger.png',
+              };
+              const hasPhoto = photoMap[member.name];
+              return (
+                <div key={i} className="team-feature-card">
+                  <div className="team-feature-photo">
+                    {hasPhoto ? (
+                      <Image
+                        src={hasPhoto}
+                        alt={member.name}
+                        width={280}
+                        height={320}
+                        className="team-photo-img"
+                        style={{ objectFit: 'cover' }}
+                      />
+                    ) : (
+                      <div className="team-avatar-lg" aria-hidden="true">
+                        {member.name.split(' ').map(n => n[0]).join('')}
+                      </div>
+                    )}
+                  </div>
+                  <div className="team-feature-info">
+                    <h3>{member.name}</h3>
+                    <p className="team-feature-title">{member.title}</p>
+                    <span className="badge badge-blue">{member.role}</span>
+                    <p className="team-feature-bio">{member.bio.slice(0, 200)}...</p>
+                    <Link href="/about" className="btn btn-outline">Read More</Link>
+                  </div>
                 </div>
-                <h4>{member.name}</h4>
-                <p className="team-title">{member.title}</p>
-                <span className="badge badge-blue">{member.role}</span>
-              </div>
-            ))}
+              );
+            })}
           </div>
           <div className="text-center mt-8">
-            <Link href="/about" className="btn btn-outline">
-              View Full Team →
-            </Link>
+            <Link href="/about" className="btn btn-outline">View Full Team →</Link>
           </div>
         </div>
       </section>
