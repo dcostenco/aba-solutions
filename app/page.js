@@ -190,7 +190,12 @@ export default function Home() {
             {visibleTeam.slice(0, 2).map((member, i) => {
               const photoMap = {
                 'Holly Bennett': '/images/holly-bennett.jpg',
+                'Ludmila Costenco': '/images/ludmila-costenco.png',
                 'Lauren Nittinger': '/images/lauren-nittinger.png',
+                'Amy Furlow': '/images/amy-furlow.jpg',
+                'Ashley Holdridge': '/images/ashley-holdridge.jpg',
+                'Wendy Moreira': '/images/wendy-moreira.png',
+                'Katy Noll': '/images/katy-noll.png',
               };
               const hasPhoto = photoMap[member.name];
               return (
