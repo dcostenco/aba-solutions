@@ -269,3 +269,12 @@
   font-size: 1.1rem;
   margin-bottom: var(--space-8);
 }
+
+.cta-portal-btn {
+  border-color: white;
+  color: white;
+}
+.cta-portal-btn:hover {
+  background: white;
+  color: var(--color-primary);
+}

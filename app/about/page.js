@@ -25,13 +25,13 @@ export default function AboutPage() {
         <div className="container">
           {team.map((member, i) => (
             member.bio && (
-              <div key={i} className="card team-detail-card" style={{ marginBottom: 'var(--space-6)' }}>
-                <div className="team-detail-avatar">
+              <div key={i} className="card team-detail-card mb-6">
+                <div className="team-detail-avatar" aria-hidden="true">
                   {member.name.split(' ').map(n => n[0]).join('')}
                 </div>
                 <div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap', marginBottom: '0.5rem' }}>
-                    <h3 style={{ margin: 0 }}>{member.name}</h3>
+                  <div className="flex-wrap-center">
+                    <h3 className="mb-0">{member.name}</h3>
                     <span className="badge badge-blue">{member.role}</span>
                   </div>
                   <p className="team-detail-meta">{member.title} &bull; {member.credentials}</p>

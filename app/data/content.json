@@ -116,5 +116,49 @@
     "We accept most major insurance types.",
     "We are no longer accepting new Cigna patients.",
     "We are no longer accepting new Tricare patients."
+  ],
+  "resources": [
+    {
+      "icon": "🎙️",
+      "title": "Our Podcast",
+      "description": "The Grit and Grind of Autism — Finding Light Along the Journey. Hosted by our team, sharing real stories and practical advice.",
+      "link": "https://podcasts.apple.com/us/podcast/the-grit-and-grind-of-autism-finding-light-along-the-journey/id1616596035",
+      "linkText": "Listen on Apple Podcasts"
+    },
+    {
+      "icon": "🏥",
+      "title": "Kennedy Krieger Institute",
+      "description": "An internationally recognized institution dedicated to improving the lives of children with neurological conditions.",
+      "link": "https://www.kennedykrieger.org/",
+      "linkText": "Visit Website"
+    },
+    {
+      "icon": "🧩",
+      "title": "Autism Society of America",
+      "description": "The Autism Society has been the leading source of trusted and reliable information about autism for more than 50 years.",
+      "link": "https://autismsociety.org/",
+      "linkText": "Visit Website"
+    },
+    {
+      "icon": "📚",
+      "title": "BACB",
+      "description": "Learn about board certification standards and find certified behavior analysts in your area.",
+      "link": "https://www.bacb.com/",
+      "linkText": "Visit Website"
+    },
+    {
+      "icon": "🏫",
+      "title": "Maryland Dept. of Education",
+      "description": "Information about special education services, IEPs, and educational supports available in Maryland.",
+      "link": "https://www.marylandpublicschools.org/",
+      "linkText": "Visit Website"
+    },
+    {
+      "icon": "🍎",
+      "title": "Maryland Food Bank",
+      "description": "ABA Solutions proudly supports the Maryland Food Bank. Join us in making a difference.",
+      "link": "https://mdfoodbank.org/",
+      "linkText": "Learn More"
+    }
   ]
 }

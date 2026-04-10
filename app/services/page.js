@@ -66,7 +66,7 @@ export default function ServicesPage() {
             <div>
               <h2>{services.schedule.title}</h2>
               <p>{services.schedule.description}</p>
-              <Link href="/contact" className="btn btn-primary" style={{ marginTop: '1rem' }}>
+              <Link href="/contact" className="btn btn-primary mt-4">
                 Get Started →
               </Link>
             </div>

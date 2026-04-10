@@ -4,6 +4,7 @@ import './home.css';
 
 export default function Home() {
   const { hero, services, locations, serviceAreas, team, insurance } = content;
+  const visibleTeam = team.filter(m => m.bio);
 
   return (
     <>
@@ -42,7 +43,7 @@ export default function Home() {
           </div>
           <div className="hero-visual">
             <div className="hero-card">
-              <div className="hero-card-icon">🧩</div>
+              <div className="hero-card-icon" aria-hidden="true">🧩</div>
               <h3>Every Child is Unique</h3>
               <p>We create individualized programs tailored to your child&apos;s specific needs and strengths.</p>
             </div>
@@ -59,8 +60,8 @@ export default function Home() {
             <p>{services.intro}</p>
           </div>
           <div className="grid-3">
-            <div className="card service-card">
-              <div className="service-icon">📋</div>
+            <div className="card card-interactive service-card">
+              <div className="service-icon" aria-hidden="true">📋</div>
               <h3>{services.assessment.title}</h3>
               <p>{services.assessment.description}</p>
               <div className="service-tags">
@@ -69,8 +70,8 @@ export default function Home() {
                 ))}
               </div>
             </div>
-            <div className="card service-card">
-              <div className="service-icon">🎯</div>
+            <div className="card card-interactive service-card">
+              <div className="service-icon" aria-hidden="true">🎯</div>
               <h3>{services.treatment.title}</h3>
               <p>{services.treatment.description}</p>
               <div className="service-tags">
@@ -80,11 +81,11 @@ export default function Home() {
                 <span className="badge badge-green">+{services.treatment.offerings.length - 5} more</span>
               </div>
             </div>
-            <div className="card service-card">
-              <div className="service-icon">📅</div>
+            <div className="card card-interactive service-card">
+              <div className="service-icon" aria-hidden="true">📅</div>
               <h3>{services.schedule.title}</h3>
               <p>{services.schedule.description}</p>
-              <Link href="/contact" className="btn btn-outline" style={{ marginTop: 'auto' }}>
+              <Link href="/contact" className="btn btn-outline mt-auto">
                 Schedule a Call
               </Link>
             </div>
@@ -102,8 +103,8 @@ export default function Home() {
           </div>
           <div className="grid-2">
             {locations.map((loc, i) => (
-              <div key={i} className="card location-card">
-                <div className="location-icon">🏥</div>
+              <div key={i} className="card card-interactive location-card">
+                <div className="location-icon" aria-hidden="true">🏥</div>
                 <h3>{loc.name}</h3>
                 <p className="location-address">{loc.address}</p>
                 <Link href="/locations" className="btn btn-outline">
@@ -123,7 +124,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Team Preview */}
+      {/* Team Preview — only show members with bios */}
       <section className="section">
         <div className="container">
           <div className="section-header">
@@ -132,9 +133,9 @@ export default function Home() {
             <p>Our team of Board Certified Behavior Analysts and Registered Behavior Technicians are dedicated to helping your family thrive.</p>
           </div>
           <div className="grid-4">
-            {team.slice(0, 4).map((member, i) => (
-              <div key={i} className="card team-card">
-                <div className="team-avatar">
+            {visibleTeam.slice(0, 4).map((member, i) => (
+              <div key={i} className="card card-interactive team-card">
+                <div className="team-avatar" aria-hidden="true">
                   {member.name.split(' ').map(n => n[0]).join('')}
                 </div>
                 <h4>{member.name}</h4>
@@ -143,7 +144,7 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <div style={{ textAlign: 'center', marginTop: 'var(--space-8)' }}>
+          <div className="text-center mt-8">
             <Link href="/about" className="btn btn-outline">
               View Full Team →
             </Link>
@@ -177,9 +178,9 @@ export default function Home() {
           <div className="cta-content">
             <h2>Ready to Get Started?</h2>
             <p>We are here to support your family every step of the way. Reach out today to learn how ABA therapy can make a difference for your child.</p>
-            <div className="hero-actions" style={{ justifyContent: 'center' }}>
+            <div className="hero-actions justify-center">
               <Link href="/contact" className="btn btn-white btn-lg">Contact Us</Link>
-              <Link href="/portal" className="btn btn-outline btn-lg" style={{ borderColor: 'white', color: 'white' }}>
+              <Link href="/portal" className="btn btn-outline btn-lg cta-portal-btn">
                 Patient Portal
               </Link>
             </div>
