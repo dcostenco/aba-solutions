@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
@@ -52,7 +53,14 @@ export default function Navbar() {
     <nav className={`navbar ${scrolled ? 'navbar-scrolled' : ''}`} role="navigation" aria-label="Main navigation">
       <div className="navbar-inner container">
         <Link href="/" className="navbar-brand">
-          <span className="brand-icon" aria-hidden="true">🧩</span>
+          <Image
+            src="/images/logo-icon.png"
+            alt="ABA Solutions logo"
+            width={40}
+            height={40}
+            className="brand-logo"
+            priority
+          />
           <span className="brand-text">
             <span className="brand-name">ABA Solutions</span>
             <span className="brand-sub">Applied Behavior Analysis</span>

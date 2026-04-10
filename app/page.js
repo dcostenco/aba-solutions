@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import content from './data/content.json';
 import './home.css';
 
@@ -43,7 +44,13 @@ export default function Home() {
           </div>
           <div className="hero-visual">
             <div className="hero-card">
-              <div className="hero-card-icon" aria-hidden="true">🧩</div>
+              <Image
+                src="/images/logo.png"
+                alt="ABA Solutions puzzle logo"
+                width={200}
+                height={65}
+                className="hero-card-logo"
+              />
               <h3>Every Child is Unique</h3>
               <p>We create individualized programs tailored to your child&apos;s specific needs and strengths.</p>
             </div>

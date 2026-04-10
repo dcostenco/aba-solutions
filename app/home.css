@@ -113,9 +113,8 @@
   transform: rotate(0deg);
 }
 
-.hero-card-icon {
-  font-size: 3rem;
-  margin-bottom: var(--space-4);
+.hero-card-logo {
+  margin: 0 auto var(--space-4);
 }
 
 .hero-card h3 {

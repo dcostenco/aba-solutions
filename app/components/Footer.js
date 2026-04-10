@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Footer() {
   return (
@@ -7,7 +8,12 @@ export default function Footer() {
         <div className="footer-grid">
           <div className="footer-brand">
             <div className="footer-logo">
-              <span className="brand-icon">🧩</span>
+              <Image
+                src="/images/logo-icon.png"
+                alt="ABA Solutions logo"
+                width={36}
+                height={36}
+              />
               <span>
                 <strong>ABA Solutions, LLC</strong>
                 <br />

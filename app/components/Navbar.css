@@ -30,8 +30,9 @@
   text-decoration: none;
   color: var(--color-dark);
 }
-.brand-icon {
-  font-size: 1.75rem;
+.brand-logo {
+  border-radius: 4px;
+  flex-shrink: 0;
 }
 .brand-text {
   display: flex;
