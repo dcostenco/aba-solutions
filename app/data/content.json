@@ -1,0 +1,120 @@
+{
+  "siteVars": {
+    "name": "ABA Solutions, LLC",
+    "tagline": "Empowering Families Through Applied Behavior Analysis",
+    "phone": "(410) 555-0123",
+    "email": "info@abasolutionsllc.com",
+    "facebook": "https://www.facebook.com/ABA-Solutions-LLC-103423395523954/",
+    "careers": "https://www.indeed.com/cmp/Aba-Solutions,-LLC-1/jobs",
+    "podcast": "https://podcasts.apple.com/us/podcast/the-grit-and-grind-of-autism-finding-light-along-the-journey/id1616596035"
+  },
+  "hero": {
+    "title": "Supporting Your Child's Growth & Development",
+    "subtitle": "Evidence-based ABA therapy delivered in your home and community across Maryland",
+    "cta": "Get Started Today",
+    "ctaLink": "/contact"
+  },
+  "services": {
+    "intro": "We provide comprehensive Applied Behavior Analysis services tailored to your child's unique needs. Our team of experienced BCBAs and RBTs work collaboratively with families to create meaningful, lasting change.",
+    "assessment": {
+      "title": "Assessment",
+      "description": "We begin with assessment. Assessment involves observation as well as parent interview. This allows us to develop an individualized program that will help your child learn and grow.",
+      "tools": ["ABLLS-R", "AFLS", "VB-MAPP", "Social Skills Checklist", "PEAK"]
+    },
+    "treatment": {
+      "title": "Treatment",
+      "description": "The next step is development of the treatment plan. This plan will outline goals and objectives that will be taught to your child over the authorization period. Data are collected throughout the intervention process to determine if progress is made or if the goals need to be modified.",
+      "offerings": [
+        "Social Skills Groups",
+        "Toilet Training",
+        "Sleep Training",
+        "Feeding Programs",
+        "Parent Training",
+        "School Consultation",
+        "Parent Advocacy",
+        "Verbal Behavior",
+        "FBA/BIP"
+      ]
+    },
+    "schedule": {
+      "title": "Scheduling",
+      "description": "Once we have the treatment plan approved by one of the insurance companies, we will know how many hours we will be supporting your child. We will work with your schedule to have one of our experienced BCBAs and RBTs come to your home to provide services."
+    }
+  },
+  "locations": [
+    {
+      "name": "The Clinic at Parkville",
+      "address": "Parkville, MD",
+      "link": "/locations/parkville"
+    },
+    {
+      "name": "The Clinic at Owings Mills",
+      "address": "Owings Mills, MD",
+      "link": "/locations/owings-mills"
+    }
+  ],
+  "serviceAreas": [
+    "Anne Arundel County",
+    "Baltimore County",
+    "Carroll County",
+    "Howard County",
+    "Montgomery County",
+    "Northern Prince George's County"
+  ],
+  "team": [
+    {
+      "name": "Holly Bennett",
+      "title": "Owner",
+      "credentials": "M.S., BCBA, LBA – Maryland",
+      "bio": "Holly Bennett has been working with individuals with autism since 1997 when she started in a Lovaas early intervention program. She then worked at Kennedy Krieger Institute in the LEAP program and the Neurobehavior Unit (NBU). She conducted functional analyses of problem behavior, preference and stimulus avoidance assessments, functional communication training, and data collection and analysis. She is trained in both Basic and Advanced PECS communication training. She received her Masters Degree in autism and applied behavior analysis from Sage University in May 2012, and became board certified in September 2012. Holly developed an RBT training curriculum for Carroll Community College. Her areas of interest are organizational behavior management, reduction of maladaptive behaviors, verbal behavior, performance feedback and treatment integrity. Holly started ABA Solutions in 2014 with the goal to reach many families in Maryland and provide them with high quality support through her amazing teams.",
+      "role": "BCBA"
+    },
+    {
+      "name": "Ludmila Costenco",
+      "title": "Director of Clinical Quality",
+      "credentials": "M.S., BCBA, LBA – Maryland",
+      "bio": "Ludmila Costenco is a Behavior Analyst and psychologist with 20 years of experience working with children and young adults with autism. She is adept at delivering services for families as a whole and provides services and support in three languages. Through her career she worked with Children's Hospital in Republic of Moldova, Hussmann Institute for Autism and Kennedy Krieger Institute. As a behavior analyst who works directly with children and supervises services in the region, Ludmila finds enjoyment in finding solutions to any problem or barrier by using her creativity and working with a team to make improvements for patients and their families, while acknowledging and embracing cultural diversity.",
+      "role": "BCBA"
+    },
+    {
+      "name": "Amy Furlow",
+      "title": "BCBA",
+      "credentials": "M.S., BCBA, LBA – Maryland",
+      "bio": "",
+      "role": "BCBA"
+    },
+    {
+      "name": "Lauren Nittinger",
+      "title": "BCBA",
+      "credentials": "M.S., BCBA, LBA – Maryland",
+      "bio": "I obtained my certification in August of 2019. Prior to getting certified as a BCBA, I worked in a non-public Autism program for three and a half years. I started as a one-to-one aid and ended my tenure there as the Lead ABA Instructor. I have worked one-on-one with children and young adults from the ages of 3 to 21 years old. I love working with all children and helping them unlock their true potential.",
+      "role": "BCBA"
+    },
+    {
+      "name": "Ashley Holdridge",
+      "title": "RBT",
+      "credentials": "Registered Behavior Technician",
+      "bio": "I've been working with ABA Solutions since they began. I've been working as a RBT since 2016 and absolutely love it. I am also a 5th grade teacher for Howard County Public Schools. I love working with our amazing families!",
+      "role": "RBT"
+    },
+    {
+      "name": "Wendy Moreira",
+      "title": "RBT",
+      "credentials": "Registered Behavior Technician",
+      "bio": "I have been working with ABA Solutions as a behavior therapist since September 2020 and have been a certified RBT since July 2019. I have always been passionate about working with children, especially children with disabilities. I have worked with children with autism both in-home and in-school settings for over 5 years. I am also fluent in Spanish.",
+      "role": "RBT"
+    },
+    {
+      "name": "Katy Noll",
+      "title": "RBT",
+      "credentials": "Registered Behavior Technician",
+      "bio": "I have been working in a Special Education Center in AACPS going on 8 years now, particularly working with students who have more severe behaviors. After hearing great feedback on my behavioral skills, I was confident I wanted to be an RBT. I have been able to find my career path and see my strengths shine with ABA Solutions.",
+      "role": "RBT"
+    }
+  ],
+  "insurance": [
+    "We accept most major insurance types.",
+    "We are no longer accepting new Cigna patients.",
+    "We are no longer accepting new Tricare patients."
+  ]
+}

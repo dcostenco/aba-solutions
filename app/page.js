@@ -1,66 +1,191 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import Link from 'next/link';
+import content from './data/content.json';
+import './home.css';
 
 export default function Home() {
+  const { hero, services, locations, serviceAreas, team, insurance } = content;
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.js file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      {/* Hero */}
+      <section className="hero">
+        <div className="hero-bg"></div>
+        <div className="container hero-container">
+          <div className="hero-content">
+            <span className="section-label">ABA Therapy in Maryland</span>
+            <h1>{hero.title}</h1>
+            <p className="hero-text">{hero.subtitle}</p>
+            <div className="hero-actions">
+              <Link href={hero.ctaLink} className="btn btn-primary btn-lg">
+                {hero.cta}
+              </Link>
+              <Link href="/services" className="btn btn-outline btn-lg">
+                Our Services
+              </Link>
+            </div>
+            <div className="hero-trust">
+              <div className="hero-trust-item">
+                <span className="hero-trust-number">10+</span>
+                <span className="hero-trust-label">Years of Experience</span>
+              </div>
+              <div className="hero-trust-divider"></div>
+              <div className="hero-trust-item">
+                <span className="hero-trust-number">6</span>
+                <span className="hero-trust-label">Counties Served</span>
+              </div>
+              <div className="hero-trust-divider"></div>
+              <div className="hero-trust-item">
+                <span className="hero-trust-number">2</span>
+                <span className="hero-trust-label">Clinic Locations</span>
+              </div>
+            </div>
+          </div>
+          <div className="hero-visual">
+            <div className="hero-card">
+              <div className="hero-card-icon">🧩</div>
+              <h3>Every Child is Unique</h3>
+              <p>We create individualized programs tailored to your child&apos;s specific needs and strengths.</p>
+            </div>
+          </div>
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* Services Overview */}
+      <section className="section">
+        <div className="container">
+          <div className="section-header">
+            <span className="section-label">What We Do</span>
+            <h2>Comprehensive ABA Services</h2>
+            <p>{services.intro}</p>
+          </div>
+          <div className="grid-3">
+            <div className="card service-card">
+              <div className="service-icon">📋</div>
+              <h3>{services.assessment.title}</h3>
+              <p>{services.assessment.description}</p>
+              <div className="service-tags">
+                {services.assessment.tools.map((tool, i) => (
+                  <span key={i} className="badge badge-blue">{tool}</span>
+                ))}
+              </div>
+            </div>
+            <div className="card service-card">
+              <div className="service-icon">🎯</div>
+              <h3>{services.treatment.title}</h3>
+              <p>{services.treatment.description}</p>
+              <div className="service-tags">
+                {services.treatment.offerings.slice(0, 5).map((s, i) => (
+                  <span key={i} className="badge badge-green">{s}</span>
+                ))}
+                <span className="badge badge-green">+{services.treatment.offerings.length - 5} more</span>
+              </div>
+            </div>
+            <div className="card service-card">
+              <div className="service-icon">📅</div>
+              <h3>{services.schedule.title}</h3>
+              <p>{services.schedule.description}</p>
+              <Link href="/contact" className="btn btn-outline" style={{ marginTop: 'auto' }}>
+                Schedule a Call
+              </Link>
+            </div>
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* Locations */}
+      <section className="section-alt">
+        <div className="container">
+          <div className="section-header">
+            <span className="section-label">Our Locations</span>
+            <h2>Two Clinics Across Maryland</h2>
+            <p>Visit us at our state-of-the-art clinics or receive services in the comfort of your home.</p>
+          </div>
+          <div className="grid-2">
+            {locations.map((loc, i) => (
+              <div key={i} className="card location-card">
+                <div className="location-icon">🏥</div>
+                <h3>{loc.name}</h3>
+                <p className="location-address">{loc.address}</p>
+                <Link href="/locations" className="btn btn-outline">
+                  Learn More
+                </Link>
+              </div>
+            ))}
+          </div>
+          <div className="service-areas">
+            <h3>Service Areas</h3>
+            <div className="area-tags">
+              {serviceAreas.map((area, i) => (
+                <span key={i} className="area-tag">{area}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Team Preview */}
+      <section className="section">
+        <div className="container">
+          <div className="section-header">
+            <span className="section-label">Our Team</span>
+            <h2>Meet Our Experienced Team</h2>
+            <p>Our team of Board Certified Behavior Analysts and Registered Behavior Technicians are dedicated to helping your family thrive.</p>
+          </div>
+          <div className="grid-4">
+            {team.slice(0, 4).map((member, i) => (
+              <div key={i} className="card team-card">
+                <div className="team-avatar">
+                  {member.name.split(' ').map(n => n[0]).join('')}
+                </div>
+                <h4>{member.name}</h4>
+                <p className="team-title">{member.title}</p>
+                <span className="badge badge-blue">{member.role}</span>
+              </div>
+            ))}
+          </div>
+          <div style={{ textAlign: 'center', marginTop: 'var(--space-8)' }}>
+            <Link href="/about" className="btn btn-outline">
+              View Full Team →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Insurance */}
+      <section className="section-blue">
+        <div className="container">
+          <div className="insurance-section">
+            <div className="insurance-content">
+              <span className="section-label">Insurance</span>
+              <h2>We Accept Most Major Insurance</h2>
+              <ul className="insurance-list">
+                {insurance.map((item, i) => (
+                  <li key={i}>{item}</li>
+                ))}
+              </ul>
+              <Link href="/contact" className="btn btn-primary">
+                Verify Your Coverage
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="cta-section">
+        <div className="container">
+          <div className="cta-content">
+            <h2>Ready to Get Started?</h2>
+            <p>We are here to support your family every step of the way. Reach out today to learn how ABA therapy can make a difference for your child.</p>
+            <div className="hero-actions" style={{ justifyContent: 'center' }}>
+              <Link href="/contact" className="btn btn-white btn-lg">Contact Us</Link>
+              <Link href="/portal" className="btn btn-outline btn-lg" style={{ borderColor: 'white', color: 'white' }}>
+                Patient Portal
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

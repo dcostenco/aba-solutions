@@ -1,0 +1,125 @@
+'use client';
+import { useState } from 'react';
+import '../pages.css';
+
+export default function ContactPage() {
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSubmitted(true);
+  };
+
+  return (
+    <>
+      <section className="page-hero">
+        <div className="container">
+          <span className="section-label">Get in Touch</span>
+          <h1>Contact Us</h1>
+          <p className="page-hero-text">
+            We would love to hear from you. Reach out to learn how ABA Solutions can support your family.
+          </p>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <div className="contact-grid">
+            <div>
+              <h2>Send Us a Message</h2>
+              {submitted ? (
+                <div className="card" style={{ textAlign: 'center', padding: 'var(--space-10)' }}>
+                  <div style={{ fontSize: '3rem', marginBottom: 'var(--space-4)' }}>✅</div>
+                  <h3>Thank You!</h3>
+                  <p>We received your message and will get back to you within 1-2 business days.</p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit}>
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="name">Full Name *</label>
+                    <input className="form-input" id="name" type="text" required placeholder="Your full name" />
+                  </div>
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="email">Email Address *</label>
+                    <input className="form-input" id="email" type="email" required placeholder="your@email.com" />
+                  </div>
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="phone">Phone Number</label>
+                    <input className="form-input" id="phone" type="tel" placeholder="(410) 555-0123" />
+                  </div>
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="subject">Subject *</label>
+                    <input className="form-input" id="subject" type="text" required placeholder="How can we help?" />
+                  </div>
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="message">Message *</label>
+                    <textarea className="form-textarea" id="message" required placeholder="Tell us about your needs..." />
+                  </div>
+                  <button type="submit" className="btn btn-primary btn-lg" style={{ width: '100%' }}>
+                    Send Message
+                  </button>
+                </form>
+              )}
+            </div>
+
+            <div>
+              <h2>Contact Information</h2>
+              <div className="contact-info-item">
+                <span className="contact-info-icon">📧</span>
+                <div>
+                  <div className="contact-info-label">Email</div>
+                  <div className="contact-info-value">info@abasolutionsllc.com</div>
+                </div>
+              </div>
+              <div className="contact-info-item">
+                <span className="contact-info-icon">📱</span>
+                <div>
+                  <div className="contact-info-label">Phone</div>
+                  <div className="contact-info-value">(410) 555-0123</div>
+                </div>
+              </div>
+              <div className="contact-info-item">
+                <span className="contact-info-icon">🏥</span>
+                <div>
+                  <div className="contact-info-label">Parkville Clinic</div>
+                  <div className="contact-info-value">Parkville, MD</div>
+                </div>
+              </div>
+              <div className="contact-info-item">
+                <span className="contact-info-icon">🏥</span>
+                <div>
+                  <div className="contact-info-label">Owings Mills Clinic</div>
+                  <div className="contact-info-value">Owings Mills, MD</div>
+                </div>
+              </div>
+              <div className="contact-info-item">
+                <span className="contact-info-icon">📘</span>
+                <div>
+                  <div className="contact-info-label">Facebook</div>
+                  <div className="contact-info-value">
+                    <a href="https://www.facebook.com/ABA-Solutions-LLC-103423395523954/" target="_blank" rel="noopener noreferrer">
+                      Follow us on Facebook →
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div className="card" style={{ marginTop: 'var(--space-8)', textAlign: 'center', background: 'var(--color-background-alt)' }}>
+                <h3>🎙️ Our Podcast</h3>
+                <p style={{ fontSize: '0.9rem' }}>The Grit and Grind of Autism — Finding Light Along the Journey</p>
+                <a
+                  href="https://podcasts.apple.com/us/podcast/the-grit-and-grind-of-autism-finding-light-along-the-journey/id1616596035"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-outline"
+                >
+                  Listen Now →
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
