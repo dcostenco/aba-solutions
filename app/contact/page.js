@@ -1,13 +1,23 @@
 'use client';
 import { useState } from 'react';
+import content from '../data/content.json';
 import '../pages.css';
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
+  const { siteVars } = content;
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // TODO Phase 2: Send form data to Supabase Edge Function / Resend
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData);
+
+    // Send form data to mailto link as a fallback until backend is wired up
+    const subject = encodeURIComponent(data.subject || 'Contact Form Submission');
+    const body = encodeURIComponent(
+      `Name: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone || 'N/A'}\n\nMessage:\n${data.message}`
+    );
+    window.location.href = `mailto:${siteVars.email}?subject=${subject}&body=${body}`;
     setSubmitted(true);
   };
 
@@ -32,7 +42,7 @@ export default function ContactPage() {
                 <div className="card text-center contact-success">
                   <div className="contact-success-icon" aria-hidden="true">✅</div>
                   <h3>Thank You!</h3>
-                  <p>We received your message and will get back to you within 1-2 business days.</p>
+                  <p>Your email client should have opened with the message. If it didn&apos;t, please email us directly at <a href={`mailto:${siteVars.email}`}>{siteVars.email}</a>.</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit}>
@@ -46,7 +56,7 @@ export default function ContactPage() {
                   </div>
                   <div className="form-group">
                     <label className="form-label" htmlFor="contact-phone">Phone Number</label>
-                    <input className="form-input" id="contact-phone" name="phone" type="tel" placeholder="(410) 555-0123" autoComplete="tel" />
+                    <input className="form-input" id="contact-phone" name="phone" type="tel" placeholder={siteVars.phone} autoComplete="tel" />
                   </div>
                   <div className="form-group">
                     <label className="form-label" htmlFor="contact-subject">Subject *</label>
@@ -69,14 +79,18 @@ export default function ContactPage() {
                 <span className="contact-info-icon" aria-hidden="true">📧</span>
                 <div>
                   <div className="contact-info-label">Email</div>
-                  <div className="contact-info-value">info@abasolutionsllc.com</div>
+                  <div className="contact-info-value">
+                    <a href={`mailto:${siteVars.email}`}>{siteVars.email}</a>
+                  </div>
                 </div>
               </div>
               <div className="contact-info-item">
                 <span className="contact-info-icon" aria-hidden="true">📱</span>
                 <div>
                   <div className="contact-info-label">Phone</div>
-                  <div className="contact-info-value">(410) 555-0123</div>
+                  <div className="contact-info-value">
+                    <a href={`tel:${siteVars.phone.replace(/[^0-9+]/g, '')}`}>{siteVars.phone}</a>
+                  </div>
                 </div>
               </div>
               <div className="contact-info-item">
@@ -98,7 +112,7 @@ export default function ContactPage() {
                 <div>
                   <div className="contact-info-label">Facebook</div>
                   <div className="contact-info-value">
-                    <a href="https://www.facebook.com/ABA-Solutions-LLC-103423395523954/" target="_blank" rel="noopener noreferrer">
+                    <a href={siteVars.facebook} target="_blank" rel="noopener noreferrer">
                       Follow us on Facebook →
                     </a>
                   </div>
@@ -109,7 +123,7 @@ export default function ContactPage() {
                 <h3>🎙️ Our Podcast</h3>
                 <p className="text-sm">The Grit and Grind of Autism — Finding Light Along the Journey</p>
                 <a
-                  href="https://podcasts.apple.com/us/podcast/the-grit-and-grind-of-autism-finding-light-along-the-journey/id1616596035"
+                  href={siteVars.podcast}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-outline"

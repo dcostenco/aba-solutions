@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { createClient } from '../../lib/supabase-browser';
@@ -9,7 +9,13 @@ export default function DashboardPage() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
-  const supabase = createClient();
+  const supabaseRef = useRef(null);
+
+  // Create client once and store in ref to avoid re-render loops
+  if (!supabaseRef.current) {
+    supabaseRef.current = createClient();
+  }
+  const supabase = supabaseRef.current;
 
   useEffect(() => {
     const getUser = async () => {
@@ -22,7 +28,7 @@ export default function DashboardPage() {
       setLoading(false);
     };
     getUser();
-  }, [router, supabase.auth]);
+  }, [router, supabase]);
 
   const handleSignOut = async () => {
     await supabase.auth.signOut();

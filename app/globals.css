@@ -331,23 +331,3 @@ img { max-width: 100%; display: block; }
   overflow: hidden;
 }
 
-/* Button white variant */
-.btn-white {
-  background: white;
-  color: var(--color-primary);
-  border: 2px solid white;
-}
-.btn-white:hover {
-  background: rgba(255,255,255,0.9);
-  color: var(--color-primary-dark);
-}
-
-/* Section backgrounds */
-.section-alt {
-  padding: var(--space-16) 0;
-  background: var(--color-background-alt);
-}
-.section-blue {
-  background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
-  padding: var(--space-16) 0;
-}

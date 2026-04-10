@@ -1,20 +1,11 @@
 import Image from 'next/image';
 import content from '../data/content.json';
+import { photoMap } from '../lib/team-photos';
 import '../pages.css';
 
 export const metadata = {
   title: 'About Us | ABA Solutions, LLC',
   description: 'Meet our team of experienced BCBAs and RBTs at ABA Solutions. Serving Maryland families since 2014.',
-};
-
-const photoMap = {
-  'Holly Bennett': '/images/holly-bennett.jpg',
-  'Ludmila Costenco': '/images/ludmila-costenco.png',
-  'Lauren Nittinger': '/images/lauren-nittinger.png',
-  'Amy Furlow': '/images/amy-furlow.jpg',
-  'Ashley Holdridge': '/images/ashley-holdridge.jpg',
-  'Wendy Moreira': '/images/wendy-moreira.png',
-  'Katy Noll': '/images/katy-noll.png',
 };
 
 export default function AboutPage() {

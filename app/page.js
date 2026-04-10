@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import content from './data/content.json';
+import { photoMap } from './lib/team-photos';
 import './home.css';
 
 export default function Home() {
@@ -158,7 +159,15 @@ export default function Home() {
           <div className="grid-2">
             {locations.map((loc, i) => (
               <div key={i} className="card card-interactive location-card">
-                <div className="location-icon" aria-hidden="true">🏥</div>
+                <div className="location-card-photo">
+                  <Image
+                    src="/images/clinic-interior.png"
+                    alt={`${loc.name} clinic`}
+                    width={400}
+                    height={200}
+                    style={{ objectFit: 'cover', width: '100%', height: '200px', borderRadius: 'var(--radius-lg)' }}
+                  />
+                </div>
                 <h3>{loc.name}</h3>
                 <p className="location-address">{loc.address}</p>
                 <Link href="/locations" className="btn btn-outline">
@@ -188,15 +197,7 @@ export default function Home() {
           </div>
           <div className="team-feature-grid">
             {visibleTeam.slice(0, 2).map((member, i) => {
-              const photoMap = {
-                'Holly Bennett': '/images/holly-bennett.jpg',
-                'Ludmila Costenco': '/images/ludmila-costenco.png',
-                'Lauren Nittinger': '/images/lauren-nittinger.png',
-                'Amy Furlow': '/images/amy-furlow.jpg',
-                'Ashley Holdridge': '/images/ashley-holdridge.jpg',
-                'Wendy Moreira': '/images/wendy-moreira.png',
-                'Katy Noll': '/images/katy-noll.png',
-              };
+
               const hasPhoto = photoMap[member.name];
               return (
                 <div key={i} className="team-feature-card">

@@ -39,7 +39,7 @@ export default function TermsPage() {
           <h2>Contact</h2>
           <p>For questions about these terms, please <Link href="/contact">contact us</Link>.</p>
 
-          <p className="color-muted text-sm mt-8">Last updated: {new Date().getFullYear()}</p>
+          <p className="color-muted text-sm mt-8">Last updated: April 2026</p>
         </div>
       </section>
     </>

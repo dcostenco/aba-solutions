@@ -4,7 +4,10 @@ import { createClient } from '../../lib/supabase-server';
 export async function GET(request) {
   const { searchParams, origin } = new URL(request.url);
   const code = searchParams.get('code');
-  const next = searchParams.get('next') ?? '/portal/dashboard';
+
+  // Validate the redirect target to prevent open redirect attacks
+  const raw = searchParams.get('next') ?? '/portal/dashboard';
+  const next = raw.startsWith('/') && !raw.startsWith('//') ? raw : '/portal/dashboard';
 
   if (code) {
     const supabase = await createClient();

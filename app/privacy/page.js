@@ -36,7 +36,7 @@ export default function PrivacyPage() {
           <h2>Contact Us</h2>
           <p>If you have questions about this privacy policy, please <Link href="/contact">contact us</Link>.</p>
 
-          <p className="color-muted text-sm mt-8">Last updated: {new Date().getFullYear()}</p>
+          <p className="color-muted text-sm mt-8">Last updated: April 2026</p>
         </div>
       </section>
     </>
