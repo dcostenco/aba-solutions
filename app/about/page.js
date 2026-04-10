@@ -45,7 +45,7 @@ export default function AboutPage() {
                       width={160}
                       height={160}
                       className="team-detail-photo"
-                      style={{ objectFit: 'cover', borderRadius: '50%' }}
+                      style={{ objectFit: 'cover', objectPosition: 'top', borderRadius: '50%' }}
                     />
                   ) : (
                     <div className="team-detail-avatar" aria-hidden="true">

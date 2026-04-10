@@ -208,7 +208,7 @@ export default function Home() {
                         width={280}
                         height={320}
                         className="team-photo-img"
-                        style={{ objectFit: 'cover' }}
+                        style={{ objectFit: 'cover', objectPosition: 'top' }}
                       />
                     ) : (
                       <div className="team-avatar-lg" aria-hidden="true">
