@@ -1,9 +1,15 @@
+import Image from 'next/image';
 import content from '../data/content.json';
 import '../pages.css';
 
 export const metadata = {
   title: 'About Us | ABA Solutions, LLC',
   description: 'Meet our team of experienced BCBAs and RBTs at ABA Solutions. Serving Maryland families since 2014.',
+};
+
+const photoMap = {
+  'Holly Bennett': '/images/holly-bennett.jpg',
+  'Lauren Nittinger': '/images/lauren-nittinger.png',
 };
 
 export default function AboutPage() {
@@ -26,8 +32,21 @@ export default function AboutPage() {
           {team.map((member, i) => (
             member.bio && (
               <div key={i} className="card team-detail-card mb-6">
-                <div className="team-detail-avatar" aria-hidden="true">
-                  {member.name.split(' ').map(n => n[0]).join('')}
+                <div className="team-detail-photo-wrap">
+                  {photoMap[member.name] ? (
+                    <Image
+                      src={photoMap[member.name]}
+                      alt={member.name}
+                      width={160}
+                      height={160}
+                      className="team-detail-photo"
+                      style={{ objectFit: 'cover', borderRadius: '50%' }}
+                    />
+                  ) : (
+                    <div className="team-detail-avatar" aria-hidden="true">
+                      {member.name.split(' ').map(n => n[0]).join('')}
+                    </div>
+                  )}
                 </div>
                 <div>
                   <div className="flex-wrap-center">

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import content from '../data/content.json';
 import '../pages.css';
 
@@ -27,7 +28,16 @@ export default function LocationsPage() {
           <div className="location-detail">
             {locations.map((loc, i) => (
               <div key={i} className="card location-detail-card">
-                <div className="location-detail-icon">🏥</div>
+                <div className="location-detail-image">
+                  <Image
+                    src="/images/clinic-interior.png"
+                    alt={`${loc.name} clinic`}
+                    width={600}
+                    height={300}
+                    className="location-photo"
+                    style={{ objectFit: 'cover', width: '100%', height: '220px', borderRadius: 'var(--radius-lg)' }}
+                  />
+                </div>
                 <h2>{loc.name}</h2>
                 <p style={{ color: 'var(--color-text-light)', marginBottom: 'var(--space-6)' }}>{loc.address}</p>
                 <Link href="/contact" className="btn btn-primary">
